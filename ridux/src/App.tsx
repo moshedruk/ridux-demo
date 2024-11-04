@@ -2,13 +2,29 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './css/app.css'
 import BankContext from './context/bank'
 import Ibank from './interface/bank'
 import accountContext from './context/account'
 import Iaccount from './interface/account'
 import Home from './componnts/home'
+import { Route, Routes } from 'react-router-dom'
+import Nav from './componnts/Navbar'
+import PagesRouter from './componnts/PagesRouter'
+import Iunits from './interface/units'
+import DeploymentContext from './context/DeploymentContext'
+import UnitList from './componnts/UnitList'
 
 function App() { 
+  const [units, setUnits] = useState<Iunits>({ 
+    units: {
+      Golani: 'Idle',
+      Paratroopers: 'Idle',
+      Givati: 'Idle'
+    }
+  
+    });    
+    
   const [account, setAccount] = useState<Iaccount>({
     id: "1",    
     balance: 110,
@@ -27,19 +43,17 @@ function App() {
     }]
   })
   return (
-    <div>
-      <BankContext.Provider value={bank}>
+    
+      <div className="main-app">
+      <DeploymentContext.Provider value = {{units,setUnits}}>
         <accountContext.Provider value={account}>
-        <div className="app">
-          <h1>Welcome to Ridux!</h1>
-          <Home/>          
-        </div>
-        <div className="logos">
-          <img src={reactLogo} alt="React logo" />
-          <img src={viteLogo} alt="Vite logo" />
-        </div>
+          <Routes>
+            
+          <Route path="/*" element={<PagesRouter/>} />          
+          </Routes>
         </accountContext.Provider>
-      </BankContext.Provider>
+        </DeploymentContext.Provider>
+      
     </div>
   )
 }
