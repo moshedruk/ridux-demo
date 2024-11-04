@@ -1,12 +1,16 @@
 import { createContext } from "react";
+import Ibank from "../interface/bank";
 
-export default interface Iuser {
-    name: string;
-    account_id :string
-}
 
-export default interface Ibank {
-    treasure :number
-    users:Iuser[]
-}
-export const BankContext = createContext("") 
+ const BankContext = createContext<Ibank>({
+    traesher:10000,
+    users:[{
+        name:"John",
+        account_id:"12345"
+        },
+        {
+        name:"Jo",
+        account_id:"54321"
+        }]
+}) 
+export default BankContext
