@@ -7,16 +7,15 @@ export default function MissionCompleted() {
     if (!deploymentContext) {
         throw new Error("MissionCompleted must be used within a DeploymentProvider");
         }
-        const { units } = deploymentContext;
-        console.log(units);
-        let allComplete = false;
+        const { units } = deploymentContext;    
+        
        
-        allComplete = (Object.values(units).every(status => status == 'complete'))
-        console.log(allComplete)
+        const allComplete = Object.values(units.units).every(status => status === 'complete');
+            
         
   return (
     <div>
-        <h1>dfdf</h1>
+        
       {allComplete && <h1>all units complete </h1>}
       
     </div>

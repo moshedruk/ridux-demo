@@ -3,6 +3,7 @@ import DeploymentContext from '../context/DeploymentContext';
 import UnitStatus from './UnitStatus';
 import ChangeStatus from './ChangeStatus';
 import '../css/list.css'
+import MissionCompleted from './MissionCompleted';
 
 
 export default function UnitList() {
@@ -20,6 +21,7 @@ export default function UnitList() {
                         <UnitStatus unitName = {unitName} unitStatus =  {status}/><ChangeStatus unitName =  {unitName}/>
                     </div>
                 ))}
+                <MissionCompleted/>
             
         </div>
   )
