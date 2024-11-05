@@ -3,8 +3,9 @@
     width: 70%;
     height: 60%;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    background-color: rgb(187, 196, 196);
+    /* background-color: rgb(187, 196, 196); */
 }
 .item-unit{
     width: 100%;
@@ -17,4 +18,14 @@
     font-size: 20px;
     color: white;
     border: 1px solid  rgb(38, 38, 39);
+}
+.btn{    
+    width: 50%;
+    height: 50px;
+    background-color: rgb(40, 167, 69);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
 }

@@ -17,11 +17,19 @@ export const counterSlice = createSlice({
         const { key, value } = action.payload;
         state[key] = value; 
       },
-       reefresh: state => {        
-        Object.entries(state).forEach(([key]) => {
-            state[key] = 'pending'; 
-        });        
-      }
+      reefresh: state => {        
+      Object.entries(state).forEach(([key]) => {
+          state[key] = 'pending'; 
+      });        
+    },
+    addunit: (state, action) => {
+      const {name} = action.payload;
+      state[name] = 'pending';
+    },
+    delete_: (state, action) => {
+      const {name} = action.payload;
+      delete state[name];
+    }
   }
 })
 export const anotherSlice = createSlice({
@@ -40,6 +48,6 @@ export const anotherSlice = createSlice({
   })
 
   
-  export const { setValue,reefresh } = counterSlice.actions
+  export const { setValue,reefresh,addunit,delete_ } = counterSlice.actions
 export const { inc, dec } = anotherSlice.actions
 

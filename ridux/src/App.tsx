@@ -23,14 +23,12 @@ function App() {
 
     <div className="main-app">
       <DeploymentContext.Provider value={{ units, setUnits }}>
-
         <Provider store={store}>
           <Routes>
             <Route path="/*" element={<PagesRouter />} />
           </Routes>
         </Provider>
       </DeploymentContext.Provider>
-
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './Navbar'
 import '../css/PagesRouter.css'
 import UnitList from './UnitList'
-import MissionCompleted from './MissionCompleted'
+import Addunit from './addunit'
 
 export default function PagesRouter() {
   return (
@@ -13,8 +13,8 @@ export default function PagesRouter() {
       </div>
       <div className="right">
         <Routes>
-          <Route path="/cr1" element={<UnitList/>} />
-          <Route path="/cr2" element={<MissionCompleted/>} />
+          <Route path="/list" element={<UnitList/>} />
+          <Route path="/add" element={<Addunit/>} />
           <Route path="/tra3" element={<h1>33333</h1>} />
         </Routes>
       </div>
